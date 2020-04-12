@@ -49,7 +49,7 @@ def test(a):
 result = []
 # for i in arr:
 #     result.append(test(i))
-with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+with concurrent.futures.ProcessPoolExecutor(max_workers=5) as executor:
     # result = executor.map(test, arr)
     result_futures = list(map(lambda x: executor.submit(test, x), arr))
     # result = [Row(f.result())
